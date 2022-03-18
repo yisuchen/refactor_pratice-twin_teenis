@@ -20,26 +20,14 @@ public class Tennis
 
     public String score()
     {
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 0)
+        if (firstPlayerScoreTimes == secondPlayerScoreTimes)
         {
+            if(firstPlayerScoreTimes>=3)
+                return duece;
+
             return map[firstPlayerScoreTimes] + " " + all;
         }
-        if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 1)
-        {
-            return map[firstPlayerScoreTimes] + " " + all;
-        }
-        if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 2)
-        {
-            return map[firstPlayerScoreTimes] + " " + all;
-        }
-        if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 3)
-        {
-            return duece;
-        }
-        if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 4)
-        {
-            return duece;
-        }
+        
 
 
         if (firstPlayerScoreTimes < 4 && secondPlayerScoreTimes == 0)
