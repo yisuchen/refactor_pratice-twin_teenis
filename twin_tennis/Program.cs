@@ -24,31 +24,6 @@ public class Tennis
         {
             return map[firstPlayerScoreTimes] + " " + all;
         }
-        if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 0)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
-        if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 0)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
-        if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 0)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
-
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 1)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 2)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 3)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
         if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 1)
         {
             return map[firstPlayerScoreTimes] + " " + all;
@@ -65,6 +40,19 @@ public class Tennis
         {
             return duece;
         }
+
+
+        if (firstPlayerScoreTimes < 4 && secondPlayerScoreTimes == 0)
+        {
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
+        }
+
+        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes < 4)
+        {
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
+        }
+
+
         if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 3)
         {
             return FirstPlayer + " adv";
