@@ -10,49 +10,52 @@ public class Tennis
     private int secondPlayerScoreTimes;
     private int firstPlayerScoreTimes;
 
+    private readonly Dictionary<int, string> map = new Dictionary<int, string>()
+        {
+            {0,"love" },
+            {1, "fifteen" },
+            {2, "thirty" },
+            {3, "forty" },
+        };
 
     public String score()
     {
-        string love = "love";
-        string fifteen = "fifteen";
-        string thirty = "thirty";
-        string forty = "forty";
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 0)
         {
-            return love + " " + all;
+            return map[firstPlayerScoreTimes] + " " + all;
         }
         if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 0)
         {
-            return fifteen + " " + love;
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
         if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 0)
         {
-            return thirty + " " + love;
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
         if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 0)
         {
-            return forty + " " + love;
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
 
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 1)
         {
-            return love + " " + fifteen;
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 2)
         {
-            return love + " " + thirty;
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 3)
         {
-            return love + " " + forty;
+            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
         if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 1)
         {
-            return fifteen + " " + all;
+            return map[firstPlayerScoreTimes] + " " + all;
         }
         if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 2)
         {
-            return thirty + " " + all;
+            return map[firstPlayerScoreTimes] + " " + all;
         }
         if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 3)
         {
