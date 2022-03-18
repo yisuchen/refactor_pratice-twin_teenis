@@ -57,6 +57,12 @@ namespace Tests
         {
             givenSecondPlayerScore(2);
             scoreShouldBe("love thirty");
+        }        
+        [TestMethod]
+        public void love_forty()
+        {
+            givenSecondPlayerScore(3);
+            scoreShouldBe("love forty");
         }
 
         [TestMethod]
