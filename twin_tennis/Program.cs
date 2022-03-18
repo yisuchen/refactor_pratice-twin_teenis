@@ -20,18 +20,16 @@ public class Tennis
 
     public String score()
     {
-        if (firstPlayerScoreTimes == secondPlayerScoreTimes)
+        if (isSameScore())
         {
-            if(firstPlayerScoreTimes>=3)
+            if (isOver3())
                 return duece;
 
-            return map[firstPlayerScoreTimes] + " " + all;
+            return SameScore();
         }
 
-        if (firstPlayerScoreTimes < 4 && secondPlayerScoreTimes <4)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
+        if (isNeedCheck())
+            return CheckScore();
 
 
         if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 3)
@@ -51,6 +49,31 @@ public class Tennis
             return SecondPlayer + " win";
         }
         return null;
+    }
+
+    private bool isNeedCheck()
+    {
+        return firstPlayerScoreTimes < 4 && secondPlayerScoreTimes < 4;
+    }
+
+    private bool isSameScore()
+    {
+        return firstPlayerScoreTimes == secondPlayerScoreTimes;
+    }
+
+    private bool isOver3()
+    {
+        return firstPlayerScoreTimes >= 3;
+    }
+
+    private string SameScore()
+    {
+        return map[firstPlayerScoreTimes] + " " + all;
+    }
+
+    private string CheckScore()
+    {
+        return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
     }
 
     public void firstPlayerScore()
