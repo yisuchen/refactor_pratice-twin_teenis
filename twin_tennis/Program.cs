@@ -27,15 +27,8 @@ public class Tennis
 
             return map[firstPlayerScoreTimes] + " " + all;
         }
-        
 
-
-        if (firstPlayerScoreTimes < 4 && secondPlayerScoreTimes == 0)
-        {
-            return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
-        }
-
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes < 4)
+        if (firstPlayerScoreTimes < 4 && secondPlayerScoreTimes <4)
         {
             return map[firstPlayerScoreTimes] + " " + map[secondPlayerScoreTimes];
         }
