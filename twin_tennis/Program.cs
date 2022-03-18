@@ -31,23 +31,27 @@ public class Tennis
         if (isNeedCheck())
             return CheckScore();
 
+        if (Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1)
+        {
+            return advPlayer() + " adv";
+        }
+
+        if (Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 2)
+        {
+            return advPlayer() + " win";
+        }
+
+        return null;
+    }
+
+    private string advPlayer()
+    {
         string advPlayer;
         if (firstPlayerScoreTimes > secondPlayerScoreTimes)
             advPlayer = FirstPlayer;
         else
             advPlayer = SecondPlayer;
-
-        if (Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1)
-        {
-            return advPlayer + " adv";
-        }
-        
-        if (Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 2)
-        {
-            return advPlayer + " win";
-        }
-
-        return null;
+        return advPlayer;
     }
 
     private bool isNeedCheck()
