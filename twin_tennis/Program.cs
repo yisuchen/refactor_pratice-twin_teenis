@@ -3,71 +3,80 @@ Console.WriteLine("Hello, World!");
 
 public class Tennis
 {
+    private const string all = "all";
+    private const string duece = "duece";
+    private const string FirstPlayer = "Joey";
+    private const string SecondPlayer = "Tom";
     private int secondPlayerScoreTimes;
     private int firstPlayerScoreTimes;
 
+
     public String score()
     {
+        string love = "love";
+        string fifteen = "fifteen";
+        string thirty = "thirty";
+        string forty = "forty";
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 0)
         {
-            return "love all";
+            return love + " " + all;
         }
         if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 0)
         {
-            return "fifteen love";
+            return fifteen + " " + love;
         }
         if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 0)
         {
-            return "thirty love";
+            return thirty + " " + love;
         }
         if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 0)
         {
-            return "forty love";
+            return forty + " " + love;
         }
 
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 1)
         {
-            return "love fifteen";
+            return love + " " + fifteen;
         }
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 2)
         {
-            return "love thirty";
+            return love + " " + thirty;
         }
         if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 3)
         {
-            return "love forty";
+            return love + " " + forty;
         }
         if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 1)
         {
-            return "fifteen all";
+            return fifteen + " " + all;
         }
         if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 2)
         {
-            return "thirty all";
+            return thirty + " " + all;
         }
         if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 3)
         {
-            return "deuce";
+            return duece;
         }
         if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 4)
         {
-            return "deuce";
+            return duece;
         }
         if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 3)
         {
-            return "Joey adv";
+            return FirstPlayer + " adv";
         }
         if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 4)
         {
-            return "Tom adv";
+            return SecondPlayer + " adv";
         }
         if (firstPlayerScoreTimes == 5 && secondPlayerScoreTimes == 3)
         {
-            return "Joey win";
+            return FirstPlayer + " win";
         }
         if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 5)
         {
-            return "Tom win";
+            return SecondPlayer + " win";
         }
         return null;
     }

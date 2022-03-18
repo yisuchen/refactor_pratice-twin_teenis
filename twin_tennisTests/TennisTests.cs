@@ -82,16 +82,16 @@ namespace Tests
         }
 
         [TestMethod]
-        public void deuce()
+        public void duece()
         {
-            givenDeuce();
-            scoreShouldBe("deuce");
+            givenduece();
+            scoreShouldBe("duece");
         }
 
         [TestMethod]
         public void first_player_adv()
         {
-            givenDeuce();
+            givenduece();
             givenFirstPlayerScore(1);
             scoreShouldBe("Joey adv");
         }
@@ -99,7 +99,7 @@ namespace Tests
         [TestMethod]
         public void second_player_adv()
         {
-            givenDeuce();
+            givenduece();
             givenSecondPlayerScore(1);
             scoreShouldBe("Tom adv");
         }
@@ -107,7 +107,7 @@ namespace Tests
         [TestMethod]
         public void second_player_win()
         {
-            givenDeuce();
+            givenduece();
             givenSecondPlayerScore(2);
             scoreShouldBe("Tom win");
         }
@@ -115,14 +115,14 @@ namespace Tests
         [TestMethod]
         public void first_player_win()
         {
-            givenDeuce();
+            givenduece();
             givenFirstPlayerScore(2);
             scoreShouldBe("Joey win");
         }
 
 
 
-        private void givenDeuce()
+        private void givenduece()
         {
             givenFirstPlayerScore(3);
             givenSecondPlayerScore(3);
