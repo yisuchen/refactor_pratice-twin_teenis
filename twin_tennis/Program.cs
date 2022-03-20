@@ -21,27 +21,17 @@ public class Tennis
     public String score()
     {
         if (isSameScore())
-        {
-            if (isOver3())
-                return duece;
-
-            return SameScore();
-        }
+            return isOver3() ? duece : SameScore();
 
         if (isNeedCheck())
             return CheckScore();
 
-        if (Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1)
-        {
-            return advPlayer() + " adv";
-        }
+        return string.Format("{0} {1}", advPlayer(), isAdv() ? "adv" : "win");
+    }
 
-        if (Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 2)
-        {
-            return advPlayer() + " win";
-        }
-
-        return null;
+    private bool isAdv()
+    {
+        return Math.Abs(firstPlayerScoreTimes - secondPlayerScoreTimes) == 1;
     }
 
     private string advPlayer()
@@ -71,7 +61,7 @@ public class Tennis
 
     private string SameScore()
     {
-        return map[firstPlayerScoreTimes] + " " + all;
+        return string.Format("{0} {1}", map[firstPlayerScoreTimes], all);
     }
 
     private string CheckScore()
