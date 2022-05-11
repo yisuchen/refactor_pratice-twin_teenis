@@ -132,7 +132,7 @@ namespace Tests
         {
             for (int i = 0; i < times; i++)
             {
-                tennis.secondPlayerScore();
+                tennis.SecondPlayerScore();
             }
         }
 
@@ -140,13 +140,13 @@ namespace Tests
         {
             for (int i = 0; i < times; i++)
             {
-                tennis.firstPlayerScore();
+                tennis.FirstPlayerScore();
             }
         }
 
         private void scoreShouldBe(String expected)
         {
-            Assert.AreEqual(expected, tennis.score());
+            Assert.AreEqual(expected, tennis.Score());
         }
 
     }

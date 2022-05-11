@@ -1,84 +1,75 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
 Console.WriteLine("Hello, World!");
 
 public class Tennis
 {
-    private int secondPlayerScoreTimes;
-    private int firstPlayerScoreTimes;
+    private int _secondPlayerScoreTimes;
+    private int _firstPlayerScoreTimes;
+    private const string Deuce = "deuce";
+    private const string FirstPlayer = "Joey";
+    private const string SecondPlayer = "Tom";
 
-    public String score()
+    private readonly Dictionary<int, string> _lookup = new()
     {
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 0)
+        { 0, "love" },
+        { 1, "fifteen" },
+        { 2, "thirty" },
+        { 3, "forty" }
+    };
+
+    public string Score()
+    {
+        if (_firstPlayerScoreTimes < 4 && _secondPlayerScoreTimes < 4)
         {
-            return "love all";
-        }
-        if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 0)
-        {
-            return "fifteen love";
-        }
-        if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 0)
-        {
-            return "thirty love";
-        }
-        if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 0)
-        {
-            return "forty love";
+            if (!IsSameScore()) return CheckScore();
+            return IsOver3() ? Deuce : SameScore();
         }
 
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 1)
-        {
-            return "love fifteen";
-        }
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 2)
-        {
-            return "love thirty";
-        }
-        if (firstPlayerScoreTimes == 0 && secondPlayerScoreTimes == 3)
-        {
-            return "love forty";
-        }
-        if (firstPlayerScoreTimes == 1 && secondPlayerScoreTimes == 1)
-        {
-            return "fifteen all";
-        }
-        if (firstPlayerScoreTimes == 2 && secondPlayerScoreTimes == 2)
-        {
-            return "thirty all";
-        }
-        if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 3)
-        {
-            return "deuce";
-        }
-        if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 4)
-        {
-            return "deuce";
-        }
-        if (firstPlayerScoreTimes == 4 && secondPlayerScoreTimes == 3)
-        {
-            return "Joey adv";
-        }
-        if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 4)
-        {
-            return "Tom adv";
-        }
-        if (firstPlayerScoreTimes == 5 && secondPlayerScoreTimes == 3)
-        {
-            return "Joey win";
-        }
-        if (firstPlayerScoreTimes == 3 && secondPlayerScoreTimes == 5)
-        {
-            return "Tom win";
-        }
-        return null;
+        return $"{AdvPlayer()} {IsAdv()}";
     }
 
-    public void firstPlayerScore()
+    private string CheckScore()
     {
-        this.firstPlayerScoreTimes++;
+        return _lookup[_firstPlayerScoreTimes] + " " + _lookup[_secondPlayerScoreTimes];
     }
 
-    public void secondPlayerScore()
+    private string SameScore()
     {
-        this.secondPlayerScoreTimes++;
+        return $"{_lookup[_firstPlayerScoreTimes]} all";
+    }
+
+
+    public void FirstPlayerScore()
+    {
+        this._firstPlayerScoreTimes++;
+    }
+
+    public void SecondPlayerScore()
+    {
+        this._secondPlayerScoreTimes++;
+    }
+
+
+    private bool IsSameScore()
+    {
+        return _firstPlayerScoreTimes == _secondPlayerScoreTimes;
+    }
+
+    private bool IsOver3()
+    {
+        return _firstPlayerScoreTimes >= 3;
+    }
+
+    private string AdvPlayer()
+    {
+        return _firstPlayerScoreTimes > _secondPlayerScoreTimes ? FirstPlayer : SecondPlayer;
+    }
+
+    private string IsAdv()
+    {
+        if (Math.Abs(_firstPlayerScoreTimes - _secondPlayerScoreTimes) == 1)
+            return "adv";
+        return "win";
     }
 }
